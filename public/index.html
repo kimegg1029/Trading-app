@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1017">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="OZU TRADING">
+<title>OZU TRADING</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1017;--surface:#111923;--surface2:#151f2b;--surface3:#1b2735;--line:#293647;--line2:#344458;--text:#edf2f8;--muted:#94a2b4;--subtle:#667587;--accent:#d7e1ed;--blue:#86b9ff;--green:#6ee0b2;--red:#ff7b8b;--amber:#efc57a;--radius:18px;--shadow:0 18px 48px #0004}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -230px,#1b2837 0,transparent 620px),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",sans-serif;letter-spacing:-.15px;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{color:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}input,select{color:var(--text)}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}.hidden{display:none!important}.muted{color:var(--muted)}.tiny{font-size:11px}.small{font-size:12px}.eyebrow{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}.wrap{width:min(100%,1020px);margin:0 auto;padding:22px 18px calc(105px + env(safe-area-inset-bottom))}.brand{display:flex;align-items:center;gap:11px;min-width:0}.brand-mark{width:40px;height:40px;display:grid;place-items:center;flex:none;border-radius:13px;background:linear-gradient(145deg,#e8edf4,#aebfd3);color:#10161e;font-size:16px;font-weight:900;letter-spacing:-.08em;box-shadow:0 6px 18px #d6e2f21a}.brand-title{font-size:16px;font-weight:800;letter-spacing:.1em}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.12em;margin-top:4px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 18px;padding-bottom:17px;border-bottom:1px solid #222d3a}.top-actions{display:flex;align-items:center;gap:8px}.icon-btn,.pill-btn{border:1px solid var(--line);background:#121a24;border-radius:12px;padding:9px 11px;white-space:nowrap}.icon-btn{width:40px;height:40px;display:grid;place-items:center;font-size:17px}.pill-btn{font-size:12px;color:#d4deea}.profile-pill{display:flex;align-items:center;gap:8px;padding:5px 10px 5px 5px;border:1px solid var(--line);border-radius:999px;background:#111923;max-width:180px}.profile-pill .name{font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.avatar{width:42px;height:42px;border-radius:50%;flex:none;background:linear-gradient(140deg,#26384b,#15202c);border:1px solid #3a4b5d;display:grid;place-items:center;overflow:hidden;color:#dfe8f4;font-size:14px;font-weight:800}.avatar img{width:100%;height:100%;object-fit:cover;display:block}.avatar.small-avatar{width:30px;height:30px;font-size:11px}.avatar.big-avatar{width:84px;height:84px;font-size:26px;border-width:2px}.panel{background:linear-gradient(145deg,rgba(19,28,39,.97),rgba(15,22,31,.98));border:1px solid var(--line);border-radius:var(--radius);padding:19px;min-width:0}.panel+.panel,.section{margin-top:13px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.panel-title{margin:0;font-size:14px;font-weight:750;letter-spacing:-.2px}.panel-subtitle{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.55}.muted-line{height:1px;background:#26313e;margin:16px 0}.status-banner{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#111923;border-radius:13px;padding:11px 13px;margin-bottom:15px;color:#b9c5d3;font-size:12px;line-height:1.5}.status-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px #efc57a14;flex:none}.status-dot.good{background:var(--green);box-shadow:0 0 0 4px #6ee0b214}.status-dot.bad{background:var(--red);box-shadow:0 0 0 4px #ff7b8b14}.tag{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line2);background:#182331;color:#c9d6e5;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:700;white-space:nowrap}.tag.good{color:var(--green);border-color:#2a5a4b;background:#11231e}.tag.warn{color:var(--amber);border-color:#594a2f;background:#231d12}.tag.danger{color:var(--red);border-color:#63343d;background:#27151a}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.label{display:block;font-size:11px;color:var(--muted);margin:0 0 7px}.big-number{font-size:clamp(25px,4vw,34px);font-weight:800;letter-spacing:-1.4px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;margin-top:7px}.number{font-variant-numeric:tabular-nums}.stat-card{background:#0d141c;border:1px solid #263241;border-radius:14px;padding:14px;min-width:0}.stat-value{font-size:17px;font-weight:780;margin-top:7px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.stat-label{font-size:10px;color:var(--muted)}.positive{color:var(--green)!important}.negative{color:var(--red)!important}.btn{border:1px solid #d6e1ed;background:linear-gradient(180deg,#e5edf6,#cbd8e6);color:#111821;border-radius:12px;padding:12px 15px;font-size:12px;font-weight:800;transition:transform .14s,filter .14s}.btn:hover{filter:brightness(1.04)}.btn:active{transform:scale(.99)}.btn.secondary{background:#17212d;color:#d9e4f0;border-color:#344356}.btn.tertiary{background:transparent;color:#c7d3e0;border-color:#344356}.btn.danger{background:linear-gradient(180deg,#e85f70,#b83449);color:#fff;border-color:#b83449}.btn.full{width:100%}.btn.slim{padding:8px 11px;font-size:11px}.button-row{display:flex;gap:9px;flex-wrap:wrap}.button-row>*{flex:1;min-width:130px}.link-btn{color:#b8cdec;background:none;border:0;padding:4px;font-size:12px}.input,.select{width:100%;background:#0b1118;border:1px solid #324154;border-radius:11px;padding:12px 13px;outline:none;min-width:0}.input:focus,.select:focus{border-color:#80b2f5;box-shadow:0 0 0 3px #80b2f518}.field{margin:13px 0}.field:first-child{margin-top:0}.field small{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin-top:6px}.range{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.quick-buttons{display:flex;gap:7px;margin-top:8px}.quick-buttons button{flex:1;min-width:0;background:#182331;border:1px solid #344255;border-radius:9px;padding:8px 6px;color:#dbe5f0;font-size:11px;font-weight:750}.quick-buttons button:hover{border-color:#718ba6}.segmented{display:flex;background:#0b1118;border:1px solid #2c3949;border-radius:12px;padding:4px;gap:4px}.segmented button{border:0;background:transparent;color:var(--muted);border-radius:8px;padding:10px 8px;flex:1;font-size:12px}.segmented button.active{background:#dbe5ef;color:#101720;font-weight:800}.switch-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid #25303d;border-bottom:1px solid #25303d;margin:14px 0}.switch-row strong{font-size:12px}.switch-row small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:4px}.switch{appearance:none;width:44px;height:25px;flex:none;position:relative;background:#344152;border-radius:99px;border:1px solid #465568;transition:background .2s}.switch:before{content:"";position:absolute;width:17px;height:17px;left:3px;top:3px;border-radius:50%;background:#d8e2ed;transition:transform .2s}.switch:checked{background:#94bce9;border-color:#94bce9}.switch:checked:before{transform:translateX(19px);background:#101720}.notice{border:1px solid #334253;background:#131e2a;color:#bfccdb;border-radius:12px;padding:12px 13px;font-size:11px;line-height:1.65}.notice.warn{border-color:#5a4b32;background:#231e15;color:#edd39e}.notice.danger{border-color:#5d343b;background:#26171b;color:#f0b7c0}.notice.success{border-color:#285444;background:#12231d;color:#a5e8cc}.table-wrap{overflow:auto;border:1px solid #293647;border-radius:12px;margin:14px 0;max-width:100%}table{border-collapse:collapse;width:100%;min-width:670px;font-size:11px}th,td{text-align:right;padding:11px 12px;white-space:nowrap;border-bottom:1px solid #24303d;font-variant-numeric:tabular-nums}th{font-weight:700;color:var(--muted);background:#101720}td:first-child,th:first-child{text-align:center}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#ffffff06}.coin-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #26313e}.coin-row:last-child{border-bottom:0}.coin-left{display:flex;align-items:center;gap:10px;min-width:0}.coin-icon{width:34px;height:34px;flex:none;border:1px solid #38495c;background:#1a2735;border-radius:11px;display:grid;place-items:center;font-size:14px;font-weight:800}.coin-title{font-size:12px;font-weight:750}.coin-sub{font-size:10px;color:var(--muted);margin-top:4px}.coin-right{text-align:right;min-width:0}.coin-value{font-size:12px;font-weight:750;font-variant-numeric:tabular-nums}.coin-change{font-size:10px;color:var(--muted);margin-top:4px}.account-card{background:#0f1720;border:1px solid #293748;border-radius:15px;padding:15px;min-width:0}.account-head{display:flex;align-items:center;gap:9px;margin-bottom:14px}.account-name{font-size:13px;font-weight:800}.account-caption{font-size:10px;color:var(--muted);margin-top:4px}.account-total{font-size:21px;font-weight:800;letter-spacing:-.7px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.account-detail{margin-top:12px;padding-top:12px;border-top:1px solid #283440}.empty{text-align:center;padding:26px 12px;color:var(--muted);font-size:12px;line-height:1.6}.bottom-nav{position:fixed;z-index:10;bottom:0;left:0;right:0;width:min(100%,1020px);margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#0c1219f2;backdrop-filter:blur(20px);border:1px solid #273340;border-bottom:0;border-radius:18px 18px 0 0}.bottom-nav button{background:transparent;border:0;border-radius:11px;padding:8px 4px;color:#8190a1;font-size:10px}.bottom-nav button .nav-icon{display:block;font-size:18px;line-height:1.1;margin-bottom:5px}.bottom-nav button.active{background:#1c2a39;color:#eaf2fb}.page{display:none;animation:appear .18s ease}.page.active{display:block}@keyframes appear{from{opacity:.5;transform:translateY(3px)}to{opacity:1;transform:none}}.hero{position:relative;overflow:hidden;background:linear-gradient(125deg,#182737,#111922 68%);border:1px solid #344354;border-radius:20px;padding:21px;margin-bottom:13px}.hero:after{content:"";position:absolute;right:-42px;top:-85px;width:230px;height:230px;border:1px solid #e2ebf20e;border-radius:50%;box-shadow:0 0 0 28px #e2ebf208,0 0 0 57px #e2ebf206;pointer-events:none}.hero-content{position:relative;z-index:1}.hero-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.hero-kicker{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a9b8c9}.hero-total{font-size:clamp(29px,6vw,39px);font-weight:850;letter-spacing:-1.8px;font-variant-numeric:tabular-nums;margin:13px 0 8px;overflow-wrap:anywhere}.hero-foot{font-size:11px;color:#9cacbd}.hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}.hero-stat{border-top:1px solid #b5c5d522;padding-top:12px}.hero-stat .stat-label{color:#a2b2c4}.hero-stat .stat-value{font-size:15px;margin-top:6px}.login-wrap{min-height:80vh;display:grid;place-items:center;padding-top:6vh}.login-box{width:min(100%,430px);margin:auto}.login-brand{text-align:center;margin-bottom:28px}.login-brand .brand-mark{width:56px;height:56px;margin:0 auto 15px;border-radius:17px;font-size:22px}.login-title{margin:0;font-size:25px;letter-spacing:-.9px}.login-intro{color:var(--muted);font-size:12px;line-height:1.7;margin:9px 0 20px}.person-choice{display:flex;align-items:center;gap:12px;width:100%;background:#111923;border:1px solid #2b3949;border-radius:15px;padding:14px;text-align:left;margin:10px 0;transition:border .15s,background .15s}.person-choice:hover,.person-choice.selected{border-color:#7896b8;background:#15202c}.person-choice .choice-copy{min-width:0;flex:1}.person-choice strong{font-size:13px;display:block}.person-choice small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.person-choice .arrow{color:#9caec1;font-size:21px}.login-panel{margin-top:15px}.login-panel h2{margin:0 0 6px;font-size:14px}.login-panel .muted{font-size:11px;line-height:1.6}.divider-label{display:flex;align-items:center;gap:10px;color:var(--subtle);font-size:10px;margin:15px 0}.divider-label:before,.divider-label:after{content:"";height:1px;background:#293543;flex:1}.login-note{text-align:center;margin-top:18px;color:#738194;font-size:10px;line-height:1.7}.coin-ticker-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ticker{padding:14px;background:#0e151e;border:1px solid #293646;border-radius:14px;min-width:0}.ticker-top{display:flex;align-items:center;gap:8px}.ticker-symbol{font-size:12px;font-weight:800}.ticker-name{font-size:10px;color:var(--muted);margin-top:3px}.ticker-price{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:14px;overflow-wrap:anywhere}.ticker-change{font-size:10px;margin-top:5px}.profile-preview-row{display:flex;align-items:center;gap:15px;padding:12px 0 16px}.file-input{display:none}.modal-host{position:relative;z-index:40}.modal-bg{position:fixed;inset:0;background:#02060bd9;backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:18px;padding-bottom:calc(18px + env(safe-area-inset-bottom))}.modal{width:min(100%,560px);max-height:min(88vh,860px);overflow:auto;background:#111922;border:1px solid #3a4858;border-radius:20px;padding:20px;box-shadow:var(--shadow)}.modal h2{font-size:16px;margin:0}.modal-close{width:33px;height:33px;border:1px solid #354456;background:#19232e;border-radius:10px;font-size:17px}.modal-actions{display:flex;gap:8px;margin-top:16px}.modal-actions>*{flex:1}.checkline{display:flex;align-items:flex-start;gap:9px;font-size:11px;line-height:1.6;color:#c4d0dd;margin:13px 0}.checkline input{margin-top:2px;accent-color:#c9d8e8;flex:none}.modal-error{display:none;margin-top:12px}.modal-error.show{display:block}.settings-section{padding:15px 0;border-top:1px solid #2a3542}.settings-section:first-of-type{border-top:0}.order-item{padding:14px 0;border-bottom:1px solid #283340;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.order-item:last-child{border-bottom:0}.order-title{font-size:12px;font-weight:750}.order-meta{font-size:10px;line-height:1.65;color:var(--muted);margin-top:5px}.order-amount{white-space:nowrap;font-size:12px;font-weight:800}.badge-live{display:inline-block;border-radius:5px;font-size:9px;padding:4px 6px;border:1px solid #675b3c;color:#e7cc8d;background:#251f13}.footer-note{font-size:10px;color:#718094;line-height:1.7;margin:14px 2px 0}
+@media(min-width:700px){.wrap{padding-top:28px}.bottom-nav{position:static;border:1px solid var(--line);border-radius:14px;margin:14px auto 20px;padding:6px;backdrop-filter:none}.bottom-nav button{font-size:11px}.bottom-nav button .nav-icon{display:inline-block;vertical-align:middle;margin:0 7px 0 0;font-size:16px}.login-wrap{min-height:78vh}.panel{padding:21px}.hero{padding:26px}.modal-bg{align-items:center}}
+@media(max-width:560px){.wrap{padding:15px 12px calc(96px + env(safe-area-inset-bottom))}.top{margin-bottom:14px}.brand-mark{width:35px;height:35px;border-radius:11px}.brand-title{font-size:13px}.brand-sub{font-size:9px}.profile-pill .name{display:none}.profile-pill{padding:4px}.top-actions{gap:6px}.icon-btn{width:36px;height:36px}.panel{padding:15px;border-radius:16px}.grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}.account-total{font-size:18px}.hero{padding:18px}.hero-total{font-size:30px}.stat-card{padding:12px}.stat-value{font-size:15px}.bottom-nav{padding:7px 7px calc(7px + env(safe-area-inset-bottom))}.bottom-nav button{font-size:9px}.modal{padding:16px;border-radius:17px}.range{gap:8px}.button-row>*{min-width:110px}}
+@media(max-width:360px){.wrap{padding-left:9px;padding-right:9px}.brand-sub{display:none}.coin-ticker-grid{gap:7px}.ticker{padding:11px}.ticker-price{font-size:15px}.hero-total{font-size:27px}.panel{padding:13px}.range{grid-template-columns:1fr}.profile-pill{display:none}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="wrap login-wrap">
+  <div class="login-box">
+    <div class="login-brand"><div class="brand-mark">OZ</div><h1 class="login-title">OZU TRADING</h1><div class="login-intro">PERSONAL TRADING TERMINAL<br>두 개의 계정을 분리해 관리하는 개인 트레이딩 앱</div></div>
+    <div class="eyebrow">계정 선택</div>
+    <button id="loginCardOzu" class="person-choice" onclick="chooseUser('오주')"><span id="loginAvatarOzu" class="avatar">오</span><span class="choice-copy"><strong id="loginNameOzu">오주</strong><small>개인 거래 계정</small></span><span class="arrow">›</span></button>
+    <button id="loginCardHye" class="person-choice" onclick="chooseUser('혜령')"><span id="loginAvatarHye" class="avatar">혜</span><span class="choice-copy"><strong id="loginNameHye">혜령</strong><small>개인 거래 계정</small></span><span class="arrow">›</span></button>
+    <form id="loginPanel" class="panel login-panel hidden" onsubmit="submitLogin(event)">
+      <div class="panel-head"><div><h2 id="loginPanelTitle">오주 계정 로그인</h2><div class="muted">계정 비밀번호로 안전하게 로그인합니다.</div></div><button type="button" class="modal-close" onclick="cancelLogin()" aria-label="닫기">×</button></div>
+      <div class="field"><label class="label" for="loginPassword">비밀번호</label><input class="input" id="loginPassword" type="password" autocomplete="current-password" required minlength="1" placeholder="비밀번호 입력"></div>
+      <div id="loginError" class="notice danger hidden" role="alert"></div>
+      <button id="loginSubmit" type="submit" class="btn full">로그인</button>
+      <div class="footer-note">Face ID/패스키 로그인을 사용하려면 배포 도메인 확정 후 별도 등록이 필요합니다. 이 화면은 Face ID를 흉내 내지 않습니다.</div>
+    </form>
+    <div id="loginServerStatus" class="login-note">서버 연결 확인 중…</div>
+  </div>
+</div>
+
+<div id="appScreen" class="wrap hidden">
+  <header class="top">
+    <div class="brand"><div class="brand-mark">OZ</div><div><div class="brand-title">OZU TRADING</div><div class="brand-sub">DUAL ACCOUNT · TRADING TERMINAL</div></div></div>
+    <div class="top-actions"><button class="icon-btn" title="새로고침" aria-label="데이터 새로고침" onclick="refreshAll(true)">↻</button><button class="profile-pill" onclick="openProfileSettings()"><span id="headerAvatar" class="avatar small-avatar">오</span><span id="headerProfileName" class="name">오주</span></button><button class="pill-btn" onclick="logout()">나가기 ↗</button></div>
+  </header>
+  <div id="globalStatus" class="status-banner"><span class="status-dot"></span><span>서버 상태 확인 중…</span></div>
+  <nav class="bottom-nav" aria-label="메인 메뉴">
+    <button class="active" data-page="home" onclick="showPage('home',this)"><span class="nav-icon">⌂</span>홈</button>
+    <button data-page="calc" onclick="showPage('calc',this)"><span class="nav-icon">⌁</span>피라미드</button>
+    <button data-page="balance" onclick="showPage('balance',this)"><span class="nav-icon">▤</span>잔고 · 매도</button>
+    <button data-page="orders" onclick="showPage('orders',this)"><span class="nav-icon">↻</span>주문 내역</button>
+  </nav>
+  <main>
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-top"><div><div class="hero-kicker">내 계정 · 총 평가금액</div><div class="hero-total" id="homeTotal">—</div><div class="hero-foot" id="homeAccountStatus">업비트 API 연결 후 실제 자산을 표시합니다.</div></div><span id="homeConnectionTag" class="tag warn">API 미연결</span></div>
+          <div class="hero-stats"><div class="hero-stat"><div class="stat-label">미실현 평가손익 추정</div><div class="stat-value" id="homePnl">—</div></div><div class="hero-stat"><div class="stat-label">미체결 주문</div><div class="stat-value" id="homePending">조회 전</div></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h2 class="panel-title">계정 요약</h2><p class="panel-subtitle">오주와 혜령의 자산은 합산하지 않고 각각 표시합니다.</p></div><button class="btn secondary slim" onclick="showPage('balance')">상세 보기</button></div>
+        <div class="grid"><div id="homeOzuCard" class="account-card"></div><div id="homeHyeCard" class="account-card"></div></div>
+      </div>
+      <div class="panel section">
+        <div class="panel-head"><div><h2 class="panel-title">실시간 시세 · KRW</h2><p id="marketUpdated" class="panel-subtitle">업비트 공개 시세</p></div><button class="btn tertiary slim" onclick="loadPrices(['BTC','ETH','XRP','SOL'])">갱신</button></div>
+        <div class="coin-ticker-grid">
+          <div class="ticker"><div class="ticker-top"><div class="coin-icon">₿</div><div><div class="ticker-symbol">BTC</div><div class="ticker-name">비트코인</div></div></div><div id="marketBTC" class="ticker-price">—</div><div id="marketBTCChange" class="ticker-change muted">시세 불러오는 중</div></div>
+          <div class="ticker"><div class="ticker-top"><div class="coin-icon">◆</div><div><div class="ticker-symbol">ETH</div><div class="ticker-name">이더리움</div></div></div><div id="marketETH" class="ticker-price">—</div><div id="marketETHChange" class="ticker-change muted">시세 불러오는 중</div></div>
+          <div class="ticker"><div class="ticker-top"><div class="coin-icon">X</div><div><div class="ticker-symbol">XRP</div><div class="ticker-name">리플</div></div></div><div id="marketXRP" class="ticker-price">—</div><div id="marketXRPChange" class="ticker-change muted">—</div></div>
+          <div class="ticker"><div class="ticker-top"><div class="coin-icon">◎</div><div><div class="ticker-symbol">SOL</div><div class="ticker-name">솔라나</div></div></div><div id="marketSOL" class="ticker-price">—</div><div id="marketSOLChange" class="ticker-change muted">—</div></div>
+        </div>
+      </div>
+      <div class="panel section"><div class="panel-head"><div><h2 class="panel-title">빠른 실행</h2><p class="panel-subtitle">계획을 검토한 뒤 주문 확인 단계로 이동합니다.</p></div></div><div class="button-row"><button class="btn" onclick="showPage('calc')">피라미드 매수 계획 만들기</button><button class="btn secondary" onclick="openProfileSettings()">프로필 · API 설정</button></div></div>
+      <p class="footer-note">평가손익은 현재 보유 수량과 평균 매수가를 이용한 추정치이며, 실현 손익·수수료·세금은 포함하지 않습니다. 지원하지 않는 마켓 자산은 총 평가액에서 제외될 수 있습니다.</p>
+    </section>
+
+    <section id="page-calc" class="page">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">Pyramid order planner</div><h2 class="panel-title" style="margin-top:6px">피라미드 매수</h2><p class="panel-subtitle">가격은 등비 간격, 투자 비중은 낮은 가격대에 더 크게 배분합니다.</p></div><span class="tag">PREVIEW</span></div>
+        <div class="field"><label class="label">거래소</label><div class="segmented" id="exchange"><button class="active" type="button" data-x="업비트" onclick="setExchange(this)">업비트</button><button type="button" data-x="OKX" onclick="setExchange(this)">OKX · 추후 지원</button></div></div>
+        <div class="field"><label class="label" for="coin">코인</label><select id="coin" class="select" onchange="calcPreview()"><option value="BTC">BTC · 비트코인</option><option value="ETH">ETH · 이더리움</option><option value="XRP">XRP · 리플</option><option value="SOL">SOL · 솔라나</option><option value="DOGE">DOGE · 도지코인</option><option value="ADA">ADA · 에이다</option><option value="AVAX">AVAX · 아발란체</option><option value="LINK">LINK · 체인링크</option><option value="DOT">DOT · 폴카닷</option><option value="TRX">TRX · 트론</option><option value="SHIB">SHIB · 시바이누</option><option value="ETC">ETC · 이더리움 클래식</option><option value="BCH">BCH · 비트코인 캐시</option><option value="NEAR">NEAR · 니어프로토콜</option><option value="APT">APT · 앱토스</option><option value="SUI">SUI · 수이</option></select></div>
+        <div class="field"><label class="label">매수 범위 지정 · KRW</label><div class="range"><div><label class="label" for="upper">첫 매수 가격</label><input id="upper" class="input" type="number" inputmode="decimal" min="1" value="100000000" oninput="calcPreview()"></div><div><label class="label" for="lower">마지막 매수 가격</label><input id="lower" class="input" type="number" inputmode="decimal" min="1" value="90000000" oninput="calcPreview()"></div></div><small class="muted tiny" style="display:block;margin-top:7px">첫 매수 가격은 마지막 매수 가격보다 크거나 같아야 합니다.</small></div>
+        <div class="switch-row"><div><strong>나만 매수하기</strong><small id="buyModeHint">OFF · 오주와 혜령 계정에 각각 설정한 금액을 사용합니다.</small></div><input id="soloBuy" class="switch" type="checkbox" onchange="updateBuyMode()" aria-label="나만 매수하기"></div>
+        <div id="sharedBudgets" class="range">
+          <div class="field"><label class="label" for="ozuBudget">오주 총 투자금 · KRW</label><input id="ozuBudget" class="input" type="number" min="10000" step="10000" value="1000000" oninput="calcPreview()"><div class="quick-buttons"><button type="button" onclick="adjustBudget('ozuBudget',100000)">+10만원</button><button type="button" onclick="adjustBudget('ozuBudget',1000000)">+100만원</button></div></div>
+          <div class="field"><label class="label" for="hyeBudget">혜령 총 투자금 · KRW</label><input id="hyeBudget" class="input" type="number" min="10000" step="10000" value="1000000" oninput="calcPreview()"><div class="quick-buttons"><button type="button" onclick="adjustBudget('hyeBudget',100000)">+10만원</button><button type="button" onclick="adjustBudget('hyeBudget',1000000)">+100만원</button></div></div>
+        </div>
+        <div id="soloBudgetBox" class="field hidden"><label id="soloBudgetLabel" class="label" for="soloBudget">로그인 사용자 총 투자금 · KRW</label><input id="soloBudget" class="input" type="number" min="10000" step="10000" value="1000000" oninput="calcPreview()"><div class="quick-buttons"><button type="button" onclick="adjustBudget('soloBudget',100000)">+10만원</button><button type="button" onclick="adjustBudget('soloBudget',1000000)">+100만원</button></div></div>
+        <div class="field"><label class="label">분할 횟수</label><div class="segmented" id="entryPresets"><button type="button" class="active" data-count="10" onclick="setEntries(10,this)">10회</button><button type="button" data-count="5" onclick="setEntries(5,this)">5회</button><button type="button" data-count="3" onclick="setEntries(3,this)">3회</button></div><input id="entries" type="hidden" value="10"></div>
+        <div id="calcError" class="notice danger hidden" role="alert"></div>
+        <div class="grid" style="margin-top:14px"><div class="stat-card"><div class="stat-label">예상 평균 매수가</div><div id="avgPrice" class="stat-value">—</div></div><div class="stat-card"><div class="stat-label">예상 총 수량 · 두 계정 합산 참고치</div><div id="qtyTotal" class="stat-value">—</div></div></div>
+        <div class="table-wrap"><table><thead><tr><th>회차</th><th>매수 가격</th><th>오주 투자금</th><th>혜령 투자금</th><th>오주 예상 수량</th><th>혜령 예상 수량</th></tr></thead><tbody id="calcRows"></tbody></table></div>
+        <div class="button-row"><button class="btn" onclick="openOrderConfirm()">주문 확인으로 이동 →</button><button class="btn secondary" onclick="downloadCsv()">CSV 저장</button></div>
+        <div class="notice warn" style="margin-top:13px">현재 서버의 실거래 기능은 기본 잠금 상태입니다. 이 화면은 주문 계산과 검토를 지원하며, 서버에서 실거래를 별도로 활성화하기 전에는 주문이 전송되지 않습니다.</div>
+      </div>
+    </section>
+
+    <section id="page-balance" class="page">
+      <div class="panel"><div class="panel-head"><div><h2 class="panel-title">계정별 잔고</h2><p class="panel-subtitle">각 계정의 자산과 추정 평가손익을 독립적으로 표시합니다.</p></div><button class="btn secondary slim" onclick="refreshAll(true)">새로고침</button></div><div class="grid"><div id="balanceOzuCard" class="account-card"></div><div id="balanceHyeCard" class="account-card"></div></div></div>
+      <div class="panel section"><div class="panel-head"><div><h2 class="panel-title">비상 탈출 · 전체 시장가 매도</h2><p class="panel-subtitle">현재 로그인한 본인 계정만 대상으로 합니다.</p></div><span class="tag danger">고위험</span></div><div class="notice danger">실행 시 해당 계정의 매도 가능 코인 수량을 시장가로 매도 요청합니다. 원화는 매도하지 않으며, 미체결 주문에 묶인 수량·지원하지 않는 종목은 제외됩니다. 시장가 주문은 되돌릴 수 없고 체결 가격을 보장하지 않습니다.</div><button class="btn danger full" style="margin-top:12px" onclick="openEmergency()">⚡ 내 계정 전체 시장가 매도</button></div>
+    </section>
+
+    <section id="page-orders" class="page">
+      <div class="panel"><div class="panel-head"><div><h2 class="panel-title">주문 현황</h2><p class="panel-subtitle">저장된 주문 기록과 거래소의 현재 미체결 주문을 구분해 확인합니다.</p></div><button class="btn secondary slim" onclick="loadHistory()">갱신</button></div><div class="button-row"><button class="btn secondary" onclick="loadOpenOrders()">미체결 주문 조회</button><button class="btn danger" onclick="confirmCancelAll()">전체 미체결 취소</button></div><div id="openOrdersBox" class="account-detail hidden"><div class="panel-head"><h3 class="panel-title">현재 미체결 주문</h3><button class="link-btn" onclick="hideOpenOrders()">접기</button></div><div id="openOrdersList"></div></div></div>
+      <div class="panel section"><div class="panel-head"><div><h2 class="panel-title">주문 기록</h2><p class="panel-subtitle">서버에 저장된 주문 요청 결과입니다.</p></div><span id="historyCount" class="tag">0건</span></div><div id="ordersList"><div class="empty">주문 내역을 불러오는 중…</div></div></div>
+    </section>
+  </main>
+</div>
+<div id="modalHost" class="modal-host"></div>
+<input id="avatarFile" class="file-input" type="file" accept="image/png,image/jpeg,image/webp" onchange="handleAvatarFile(event)">
+<script>
+'use strict';
+const SUPPORTED = new Set(['BTC','ETH','XRP','SOL','DOGE','ADA','AVAX','LINK','DOT','TRX','SHIB','ETC','BCH','NEAR','APT','SUI']);
+const state = {
+  selectedUser: null, sessionUser: null,
+  profiles: { '오주': { user:'오주', displayName:'오주', avatarDataUrl:null }, '혜령': { user:'혜령', displayName:'혜령', avatarDataUrl:null } },
+  market: {}, balances: [], portfolio: {}, history: [], openOrders: [], connected: { '오주':false, '혜령':false },
+  credentialStatus: null, liveMode: 'safe-disabled', calculated: [], pendingOrder: null,
+  pendingAvatar: undefined, avatarChanged: false, profileObjectUrl: null
+};
+const COIN_NAMES = {BTC:'비트코인',ETH:'이더리움',XRP:'리플',SOL:'솔라나',DOGE:'도지코인',ADA:'에이다',AVAX:'아발란체',LINK:'체인링크',DOT:'폴카닷',TRX:'트론',SHIB:'시바이누',ETC:'이더리움 클래식',BCH:'비트코인 캐시',NEAR:'니어프로토콜',APT:'앱토스',SUI:'수이'};
+const $ = id => document.getElementById(id);
+const won = n => Number.isFinite(Number(n)) ? '₩ ' + Math.round(Number(n)).toLocaleString('ko-KR') : '—';
+const signedWon = n => (Number(n) >= 0 ? '+' : '−') + won(Math.abs(Number(n)||0));
+const fmtQty = n => Number(n||0).toLocaleString('ko-KR',{maximumFractionDigits:8});
+const pct = n => (Number(n)>=0?'+':'')+(Number(n)*100).toFixed(2)+'%';
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+async function api(path, options={}) {
+  const init = { method: options.method || 'GET', credentials: 'same-origin', headers: { ...(options.body !== undefined ? {'Content-Type':'application/json'} : {}), ...(options.headers || {}) } };
+  if (options.body !== undefined) init.body = JSON.stringify(options.body);
+  let response;
+  try { response = await fetch(path, init); }
+  catch { throw new Error('서버에 연결할 수 없습니다. GitHub 저장소가 아닌 배포된 서버 주소에서 앱을 열었는지 확인하세요.'); }
+  const data = await response.json().catch(()=>({}));
+  if (!response.ok) { const e = new Error(data.error || `요청 실패 (${response.status})`); e.status=response.status; e.code=data.code; e.data=data; throw e; }
+  return data;
+}
+
+async function boot() {
+  await Promise.allSettled([loadProfiles(), loadPrices(['BTC','ETH','XRP','SOL']), loadHealth()]);
+  $('loginServerStatus').textContent = '안전한 서버 로그인 · API 비밀키는 서버에 암호화해 저장';
+  try { const me = await api('/api/auth/me'); state.sessionUser = me.user; state.selectedUser = me.user; enterApp(); }
+  catch { /* Expected when no session exists. */ }
+}
+
+async function loadHealth() {
+  try {
+    const data = await api('/api/health');
+    state.liveMode = data.mode || 'safe-disabled';
+    if ($('globalStatus') && ! $('appScreen').classList.contains('hidden')) renderGlobalStatus();
+    $('loginServerStatus').textContent = state.liveMode === 'safe-disabled' ? '서버 연결 확인 · 실거래는 안전 잠금 상태' : '서버 연결 확인 · 실거래 기능이 활성화된 서버';
+  } catch (e) {
+    $('loginServerStatus').textContent = e.message;
+    setGlobalStatus('서버 연결 실패 · 배포 주소와 서버 상태를 확인하세요.', 'bad');
+  }
+}
+
+async function loadProfiles() {
+  try {
+    const result = await api('/api/profiles');
+    result.forEach(p => { if (['오주','혜령'].includes(p.user)) state.profiles[p.user] = p; });
+    renderLoginProfiles();
+    renderProfileControls();
+  } catch { renderLoginProfiles(); }
+}
+
+function avatarHTML(user, size='') {
+  const p = state.profiles[user] || {displayName:user,avatarDataUrl:null};
+  const image = p.avatarDataUrl ? `<img src="${esc(p.avatarDataUrl)}" alt="${esc(p.displayName || user)} 프로필 사진">` : esc((p.displayName || user).slice(0,1));
+  return `<span class="avatar ${size === 'small' ? 'small-avatar' : ''} ${size === 'big' ? 'big-avatar' : ''}">${image}</span>`;
+}
+function renderLoginProfiles() {
+  [['오주','Ozu'],['혜령','Hye']].forEach(([user,suffix])=>{
+    const card = $('loginCard'+suffix); const p=state.profiles[user];
+    $('loginAvatar'+suffix).outerHTML = avatarHTML(user);
+    const newAvatar = $('loginCard'+suffix).querySelector('.avatar'); if(newAvatar) newAvatar.id='loginAvatar'+suffix;
+    $('loginName'+suffix).textContent = p.displayName || user;
+    const small = card.querySelector('small'); if(small) small.textContent = `${user} · 개인 거래 계정`;
+  });
+  if (state.selectedUser) { $('loginCardOzu').classList.toggle('selected',state.selectedUser==='오주'); $('loginCardHye').classList.toggle('selected',state.selectedUser==='혜령'); }
+}
+function renderProfileControls() {
+  if (!state.sessionUser) return;
+  $('headerAvatar').outerHTML = avatarHTML(state.sessionUser,'small');
+  const newAvatar = document.querySelector('.profile-pill .avatar'); if(newAvatar) newAvatar.id='headerAvatar';
+  $('headerProfileName').textContent = state.profiles[state.sessionUser]?.displayName || state.sessionUser;
+}
+function chooseUser(user) {
+  state.selectedUser=user;
+  $('loginPanel').classList.remove('hidden');
+  $('loginPanelTitle').textContent = `${state.profiles[user]?.displayName || user} · 로그인`;
+  $('loginPassword').value=''; $('loginError').classList.add('hidden');
+  $('loginCardOzu').classList.toggle('selected',user==='오주'); $('loginCardHye').classList.toggle('selected',user==='혜령');
+  $('loginSubmit').textContent = `${user} 계정 로그인`;
+  $('loginPassword').focus({preventScroll:true});
+}
+function cancelLogin() { $('loginPanel').classList.add('hidden'); $('loginPassword').value=''; state.selectedUser=null; $('loginCardOzu').classList.remove('selected'); $('loginCardHye').classList.remove('selected'); }
+async function submitLogin(event) {
+  event.preventDefault();
+  if(!state.selectedUser) return;
+  const button=$('loginSubmit'); const password=$('loginPassword').value;
+  button.disabled=true; button.textContent='로그인 확인 중…'; $('loginError').classList.add('hidden');
+  try {
+    const result=await api('/api/auth/login',{method:'POST',body:{user:state.selectedUser,password}});
+    state.sessionUser=result.user; state.selectedUser=result.user;
+    $('loginPassword').value=''; enterApp();
+  } catch(e) { $('loginError').textContent=e.message; $('loginError').classList.remove('hidden'); }
+  finally { button.disabled=false; button.textContent=`${state.selectedUser || '계정'} 로그인`; }
+}
+function enterApp() {
+  state.sessionUser=state.sessionUser || state.selectedUser;
+  state.selectedUser=state.sessionUser;
+  $('loginScreen').classList.add('hidden'); $('appScreen').classList.remove('hidden');
+  renderLoginProfiles(); renderProfileControls(); updateBuyMode(); calcPreview(); renderGlobalStatus();
+  refreshAll(false); loadHistory(); loadCredentialStatus();
+}
+async function logout() {
+  try { await api('/api/auth/logout',{method:'POST',body:{}}); } catch {}
+  state.sessionUser=null; state.selectedUser=null; state.balances=[]; state.portfolio={}; state.history=[]; state.openOrders=[];
+  $('appScreen').classList.add('hidden'); $('loginScreen').classList.remove('hidden'); $('loginPanel').classList.add('hidden'); closeModal(); renderLoginProfiles();
+}
+function showPage(page,button) {
+  document.querySelectorAll('.page').forEach(el=>el.classList.toggle('active',el.id==='page-'+page));
+  document.querySelectorAll('.bottom-nav button').forEach(el=>el.classList.toggle('active',el.dataset.page===page));
+  if(page==='balance') renderBalances(); if(page==='orders') renderOrders(); if(page==='calc') calcPreview();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function setGlobalStatus(message,kind='') {
+  const el=$('globalStatus'); if(!el) return;
+  el.innerHTML=`<span class="status-dot ${kind==='good'?'good':kind==='bad'?'bad':''}"></span><span>${esc(message)}</span>`;
+}
+function renderGlobalStatus() {
+  if (!$('globalStatus')) return;
+  const connected=state.credentialStatus?.connected;
+  if(state.liveMode==='live-enabled') setGlobalStatus('실거래 기능 활성화 상태 · 실제 주문 버튼을 누르면 거래소에 주문이 전송될 수 있습니다.','bad');
+  else setGlobalStatus(connected ? '업비트 API 키 확인됨 · 실거래는 서버에서 잠금 상태입니다.' : '로그인 완료 · 업비트 API 키를 연결하면 실시간 잔고를 조회할 수 있습니다.','');
+}
+
+async function loadPrices(symbols=['BTC','ETH','XRP','SOL']) {
+  const valid=[...new Set(symbols.map(x=>String(x).toUpperCase()).filter(x=>SUPPORTED.has(x)))];
+  if(!valid.length) return;
+  try {
+    const data=await api('/api/market/prices?symbols='+encodeURIComponent(valid.join(',')));
+    data.forEach(item=>{state.market[item.symbol]=item;});
+    ['BTC','ETH','XRP','SOL'].forEach(symbol=>{
+      const item=state.market[symbol]; if(!item) return;
+      $('market'+symbol).textContent=won(item.price);
+      const change=$(symbol==='BTC'?'marketBTCChange':symbol==='ETH'?'marketETHChange':symbol==='XRP'?'marketXRPChange':'marketSOLChange');
+      change.textContent=`전일 대비 ${pct(item.changeRate)}`; change.className='ticker-change '+(item.changeRate>=0?'positive':'negative');
+    });
+    $('marketUpdated').textContent='마지막 갱신 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' · 업비트 공개 시세';
+    renderHome(); renderBalances();
+  } catch(e) { $('marketUpdated').textContent='시세 조회 실패 · '+e.message; }
+}
+async function loadCredentialStatus() {
+  if(!state.sessionUser) return;
+  try { state.credentialStatus=await api('/api/credentials/status'); }
+  catch { state.credentialStatus={connected:false}; }
+  renderGlobalStatus(); renderHome(); renderProfileSettingsStatus();
+}
+async function refreshAll(showMessage=false) {
+  if(!state.sessionUser) return;
+  if(showMessage) setGlobalStatus('서버에서 시세와 계정별 잔고를 갱신하는 중…');
+  try {
+    await loadPrices(['BTC','ETH','XRP','SOL']);
+    const results=await api('/api/upbit/all-balances'); state.balances=results;
+    results.forEach(item=>state.connected[item.user]=Boolean(item.connected));
+    const symbols=[];
+    results.forEach(item=>(item.accounts||[]).forEach(asset=>{const currency=String(asset.currency).toUpperCase();if(currency!=='KRW'&&SUPPORTED.has(currency))symbols.push(currency);}));
+    await loadPrices([...symbols,'BTC','ETH','XRP','SOL']);
+    state.portfolio={};
+    ['오주','혜령'].forEach(user=>state.portfolio[user]=buildPortfolio(user));
+    renderHome(); renderBalances(); renderGlobalStatus();
+    if(showMessage) setGlobalStatus('시세와 잔고 갱신 완료 · '+new Date().toLocaleTimeString('ko-KR'),state.credentialStatus?.connected?'good':'');
+    const openCount=await readOpenOrderCount(); $('homePending').textContent=openCount===null?'조회 실패':`${openCount}건`;
+  } catch(e) {
+    renderGlobalStatus();
+    if(showMessage) setGlobalStatus('갱신 실패 · '+e.message,'bad');
+    renderHome(); renderBalances();
+  }
+}
+function buildPortfolio(user) {
+  const account=state.balances.find(item=>item.user===user);
+  if(!account || !account.connected) return {connected:false,error:account?.error||'업비트 API 키가 등록되지 않았습니다.',total:null,pnl:null,items:[],unknown:0};
+  let total=0,pnl=0,unknown=0;
+  const items=(account.accounts||[]).filter(a=>Number(a.balance||0)+Number(a.locked||0)>0).map(a=>{
+    const currency=String(a.currency).toUpperCase(); const quantity=Number(a.balance||0)+Number(a.locked||0);
+    if(currency==='KRW') { const value=quantity; total+=value; return {currency,quantity,value,avgBuyPrice:0,pnl:0,krw:true,locked:Number(a.locked||0)}; }
+    const price=state.market[currency]?.price;
+    if(!SUPPORTED.has(currency)||!Number.isFinite(price)) { unknown++; return {currency,quantity,value:null,avgBuyPrice:Number(a.avgBuyPrice||0),pnl:null,krw:false,locked:Number(a.locked||0),unsupported:true}; }
+    const value=quantity*price; const cost=quantity*Number(a.avgBuyPrice||0); const profit=Number(a.avgBuyPrice||0)>0?value-cost:0;
+    total+=value; pnl+=profit;
+    return {currency,quantity,value,avgBuyPrice:Number(a.avgBuyPrice||0),pnl:profit,krw:false,locked:Number(a.locked||0),price};
+  }).sort((a,b)=>(b.value||0)-(a.value||0));
+  return {connected:true,total,pnl,items,unknown,error:null};
+}
+async function readOpenOrderCount() {
+  try { const data=await api('/api/upbit/open-orders'); return data.reduce((n,account)=>n+(account.orders||[]).length,0); } catch { return null; }
+}
+function accountCardHTML(user, detailed=false) {
+  const portfolio=state.portfolio[user]; const profile=state.profiles[user]||{displayName:user};
+  if(!portfolio || !portfolio.connected) return `<div class="account-head">${avatarHTML(user,'small')}<div><div class="account-name">${esc(profile.displayName||user)}</div><div class="account-caption">${user} · ${esc(portfolio?.error||'잔고 조회 전')}</div></div></div><div class="account-total">—</div><div class="account-caption">본인 업비트 API 키 연결 필요</div>${user===state.sessionUser?'<button class="btn secondary slim" style="margin-top:12px" onclick="openProfileSettings()">API 연결 설정</button>':''}`;
+  const pnl=portfolio.pnl||0;
+  let html=`<div class="account-head">${avatarHTML(user,'small')}<div style="min-width:0"><div class="account-name">${esc(profile.displayName||user)}</div><div class="account-caption">${user} · 실시간 계정</div></div><span class="tag good" style="margin-left:auto">연결됨</span></div><div class="account-total">${won(portfolio.total)}</div><div class="account-caption ${pnl>=0?'positive':'negative'}" style="margin-top:7px">평가손익 추정 ${signedWon(pnl)}</div>`;
+  if(portfolio.unknown) html+=`<div class="account-caption" style="margin-top:7px">시세 확인이 안 되는 자산 ${portfolio.unknown}종은 평가금액에서 제외</div>`;
+  if(detailed) {
+    html+='<div class="account-detail">';
+    if(!portfolio.items.length) html+='<div class="empty">보유 자산이 없습니다.</div>';
+    portfolio.items.forEach(item=>{
+      const name=item.krw?'원화 (KRW)':(COIN_NAMES[item.currency]||item.currency);
+      const leftIcon=item.krw?'₩':coinGlyph(item.currency);
+      html+=`<div class="coin-row"><div class="coin-left"><div class="coin-icon">${esc(leftIcon)}</div><div><div class="coin-title">${esc(item.currency)} · ${esc(name)}</div><div class="coin-sub">수량 ${fmtQty(item.quantity)}${item.locked?` · 주문 잠김 ${fmtQty(item.locked)}`:''}${item.avgBuyPrice?` · 평균가 ${won(item.avgBuyPrice)}`:''}</div></div></div><div class="coin-right"><div class="coin-value">${item.value===null?'시세 미지원':won(item.value)}</div><div class="coin-change ${item.pnl>=0?'positive':'negative'}">${item.krw?'':item.pnl===null?'':`평가손익 ${signedWon(item.pnl)}`}</div></div></div>`;
+    });
+    html+='</div>';
+  }
+  return html;
+}
+function coinGlyph(symbol) { return ({BTC:'₿',ETH:'◆',XRP:'X',SOL:'◎',DOGE:'Ð',ADA:'A',AVAX:'▲',LINK:'↗',DOT:'●',TRX:'T',SHIB:'S',ETC:'Ξ',BCH:'₿',NEAR:'N',APT:'A',SUI:'S'})[symbol]||symbol.slice(0,1); }
+function renderHome() {
+  if(!state.sessionUser) return;
+  const user=state.sessionUser; const portfolio=state.portfolio[user];
+  $('homeTotal').textContent=portfolio?.connected?won(portfolio.total):'—';
+  $('homePnl').textContent=portfolio?.connected?signedWon(portfolio.pnl||0):'—';
+  $('homePnl').className='stat-value '+((portfolio?.pnl||0)>=0?'positive':'negative');
+  $('homeAccountStatus').textContent=portfolio?.connected?'업비트 실시간 잔고 기반 · 수수료 제외 추정치':(portfolio?.error||'업비트 API 연결 후 실제 자산을 표시합니다.');
+  $('homeConnectionTag').textContent=portfolio?.connected?'API 연결됨':'API 미연결'; $('homeConnectionTag').className='tag '+(portfolio?.connected?'good':'warn');
+  $('homeOzuCard').innerHTML=accountCardHTML('오주'); $('homeHyeCard').innerHTML=accountCardHTML('혜령');
+  renderProfileControls();
+}
+function renderBalances() { if(!$('balanceOzuCard'))return; $('balanceOzuCard').innerHTML=accountCardHTML('오주',true); $('balanceHyeCard').innerHTML=accountCardHTML('혜령',true); }
+function updateBuyMode() {
+  const solo=$('soloBuy').checked;
+  $('sharedBudgets').classList.toggle('hidden',solo); $('soloBudgetBox').classList.toggle('hidden',!solo);
+  $('buyModeHint').textContent=solo?`ON · ${state.sessionUser||'로그인 사용자'} 계정만 매수 대상으로 계산합니다.`:'OFF · 오주와 혜령 계정에 각각 설정한 금액을 사용합니다.';
+  $('soloBudgetLabel').textContent=`${state.sessionUser||'로그인 사용자'} 총 투자금 · KRW`;
+  if(solo && state.sessionUser) $('soloBudget').value=$((state.sessionUser==='오주')?'ozuBudget':'hyeBudget').value;
+  calcPreview();
+}
+function adjustBudget(id,delta) { const el=$(id); el.value=Math.max(10000,(Number(el.value)||0)+delta); calcPreview(); }
+function setEntries(n,button) { $('entries').value=n; document.querySelectorAll('#entryPresets button').forEach(b=>b.classList.toggle('active',b===button)); calcPreview(); }
+function setExchange(button) {
+  document.querySelectorAll('#exchange button').forEach(b=>b.classList.toggle('active',b===button));
+  if(button.dataset.x==='OKX') { button.classList.remove('active'); document.querySelector('#exchange [data-x="업비트"]').classList.add('active'); alert('OKX 연동은 아직 구현되지 않았습니다. 현재는 업비트 매수 계획만 지원합니다.'); return; }
+  calcPreview();
+}
+function activeBudgets() {
+  if($('soloBuy').checked) return [{user:state.sessionUser,budget:Number($('soloBudget').value)||0}];
+  return [{user:'오주',budget:Number($('ozuBudget').value)||0},{user:'혜령',budget:Number($('hyeBudget').value)||0}];
+}
+function calcPreview() {
+  const upper=Number($('upper').value), lower=Number($('lower').value), n=Number($('entries').value)||10;
+  const budgets=activeBudgets(); const errors=[];
+  if(!Number.isFinite(upper)||!Number.isFinite(lower)||upper<=0||lower<=0) errors.push('첫 매수 가격과 마지막 매수 가격을 0보다 크게 입력하세요.');
+  else if(upper<lower) errors.push('첫 매수 가격은 마지막 매수 가격보다 크거나 같아야 합니다.');
+  if(budgets.some(b=>!b.user||!Number.isFinite(b.budget)||b.budget<=0)) errors.push('대상 계정의 총 투자금을 0보다 크게 입력하세요.');
+  const errorEl=$('calcError'); errorEl.textContent=errors.join(' '); errorEl.classList.toggle('hidden',errors.length===0);
+  if(errors.length) { state.calculated=[]; $('avgPrice').textContent='—'; $('qtyTotal').textContent='—'; $('calcRows').innerHTML=''; return; }
+  const budgetFor=user=>budgets.find(b=>b.user===user)?.budget||0; const budgetOzu=budgetFor('오주'), budgetHye=budgetFor('혜령'); const totalWeight=n*(n+1)/2;
+  let allCost=0,allQty=0;
+  state.calculated=Array.from({length:n},(_,idx)=>{
+    const i=idx+1; const price=n===1?upper:upper*Math.pow(lower/upper,idx/(n-1));
+    const weight=i/totalWeight; const amountOzu=budgetOzu?Math.floor(budgetOzu*weight):0; const amountHye=budgetHye?Math.floor(budgetHye*weight):0;
+    const qtyOzu=price>0?amountOzu/price:0, qtyHye=price>0?amountHye/price:0; allCost+=amountOzu+amountHye; allQty+=qtyOzu+qtyHye;
+    return {i,price,weight,weightPct:weight*100,amountOzu,amountHye,qtyOzu,qtyHye,amount:amountOzu+amountHye,qty:qtyOzu+qtyHye};
+  });
+  $('avgPrice').textContent=allQty?won(allCost/allQty):'—'; $('qtyTotal').textContent=allQty?allQty.toLocaleString('ko-KR',{maximumFractionDigits:8}):'—';
+  $('calcRows').innerHTML=state.calculated.map(r=>`<tr><td>${r.i}</td><td>${won(r.price)}</td><td>${won(r.amountOzu)}</td><td>${won(r.amountHye)}</td><td>${r.qtyOzu.toLocaleString('ko-KR',{maximumFractionDigits:8})}</td><td>${r.qtyHye.toLocaleString('ko-KR',{maximumFractionDigits:8})}</td></tr>`).join('');
+}
+function openOrderConfirm() {
+  calcPreview(); if(!state.calculated.length)return;
+  if(!state.sessionUser){alert('먼저 로그인하세요.');return;}
+  const budgets=activeBudgets(); if(budgets.some(b=>b.budget<=0)){alert('각 대상 계정의 투자금을 확인하세요.');return;}
+  const tooSmall=state.calculated.find(r=>budgets.some(b=>(b.user==='오주'?r.amountOzu:r.amountHye)<5000));
+  if(tooSmall){alert(`${tooSmall.i}회차 중 최소 주문 금액 5,000원 미만인 주문이 있습니다. 총 투자금을 늘리거나 분할 횟수를 줄이세요.`);return;}
+  state.pendingOrder={user:state.sessionUser,targets:budgets,mode:$('soloBuy').checked?'solo':'joint',exchange:'업비트',coin:$('coin').value,entries:state.calculated.map(r=>({...r})),upper:Number($('upper').value),lower:Number($('lower').value)};
+  const pending=state.pendingOrder; const totalOrders=pending.targets.length*pending.entries.length;
+  const targetRows=pending.targets.map(t=>`<div class="coin-row"><div><div class="coin-title">${esc(t.user)} 계정 투자금</div><div class="coin-sub">개별 계정으로 분리해 주문</div></div><div class="coin-value">${won(t.budget)}</div></div>`).join('');
+  const totalFunds=pending.targets.reduce((sum,t)=>sum+t.budget,0);
+  showModal(`<div class="panel-head"><div><div class="eyebrow">Order review</div><h2 style="margin-top:6px">주문 최종 확인</h2></div><button class="modal-close" onclick="closeModal()" aria-label="닫기">×</button></div><div class="notice ${state.liveMode==='live-enabled'?'danger':'warn'}">${state.liveMode==='live-enabled'?'실거래 활성화 서버입니다. 확인 후 제출하면 실제 업비트 주문이 전송됩니다.':'서버 실거래 잠금 상태입니다. 현재 주문은 제출되지 않습니다.'}</div><div class="coin-row"><div><div class="coin-title">거래소 / 종목</div><div class="coin-sub">${won(pending.upper)} → ${won(pending.lower)} · 등비 간격</div></div><div class="coin-value">${pending.exchange} · ${pending.coin}</div></div>${targetRows}<div class="coin-row"><div><div class="coin-title">분할 주문 수</div><div class="coin-sub">계정 수 × ${pending.entries.length}회</div></div><div class="coin-value">${totalOrders}건</div></div><div class="coin-row"><div><div class="coin-title">총 투자 예정액</div><div class="coin-sub">계정별 투자금을 단순 합산한 참고치</div></div><div class="coin-value">${won(totalFunds)}</div></div><label class="checkline"><input id="liveAck" type="checkbox">이 요청이 서버에서 실거래 활성화 상태일 경우, 실제 업비트 주문을 전송할 수 있음을 확인했습니다.</label><div id="modalError" class="notice danger modal-error" role="alert"></div><div class="modal-actions"><button class="btn secondary" onclick="closeModal()">취소</button><button id="submitPyramidBtn" class="btn" disabled onclick="submitPyramidOrder()">주문 요청</button></div>`);
+  $('liveAck').addEventListener('change',()=>{$('submitPyramidBtn').disabled=!$('liveAck').checked;});
+}
+async function submitPyramidOrder() {
+  const button=$('submitPyramidBtn'); if(!state.pendingOrder||!$('liveAck')?.checked)return;
+  button.disabled=true;button.textContent='서버 검증 중…'; hideModalError();
+  const p=state.pendingOrder; const budgets={오주:0,혜령:0}; p.targets.forEach(t=>budgets[t.user]=Math.floor(t.budget));
+  const body={symbol:p.coin,mode:p.mode,budgets,confirmLive:true,entries:p.entries.map(r=>({price:r.price,funds:{오주:r.amountOzu,혜령:r.amountHye}}))};
+  try {
+    const result=await api('/api/pyramid/orders',{method:'POST',body});
+    closeModal(); alert(result.message||'주문 요청이 접수되었습니다. 실제 체결 여부는 주문 현황에서 확인하세요.'); await loadHistory(); await refreshAll(false); showPage('orders');
+  } catch(e) {
+    showModalError(e.message+(e.status===423?' 주문은 전송되지 않았습니다.':e.status===502?' 부분 주문 접수 가능성이 있습니다. 미체결 주문을 조회하기 전 재시도하지 마세요.':''));
+  } finally { const current=$('submitPyramidBtn'); if(current){current.disabled=!$('liveAck')?.checked;current.textContent='주문 요청';} }
+}
+function downloadCsv() {
+  if(!state.calculated.length){alert('먼저 매수 범위와 투자금을 입력하세요.');return;}
+  const rows=[['회차','매수 가격(KRW)','오주 투자금(KRW)','혜령 투자금(KRW)','오주 예상 수량','혜령 예상 수량','투자 비중(%)'],...state.calculated.map(r=>[r.i,Math.floor(r.price),r.amountOzu,r.amountHye,r.qtyOzu.toFixed(10),r.qtyHye.toFixed(10),r.weightPct.toFixed(2)])];
+  const blob=new Blob(['\ufeff'+rows.map(r=>r.join(',')).join('\n')],{type:'text/csv;charset=utf-8;'}); const url=URL.createObjectURL(blob); const a=document.createElement('a');a.href=url;a.download='ozu_pyramid_buy_plan.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+async function loadHistory() {
+  if(!state.sessionUser)return;
+  $('ordersList').innerHTML='<div class="empty">주문 기록을 불러오는 중…</div>';
+  try { state.history=await api('/api/orders/history?limit=100'); renderOrders(); }
+  catch(e) { $('ordersList').innerHTML=`<div class="empty">주문 기록을 불러오지 못했습니다.<br>${esc(e.message)}</div>`; }
+}
+function orderStatusLabel(status) { const map={wait:'대기',watch:'예약',done:'체결',cancel:'취소',cancelled:'취소',submitting:'전송 중',submitted:'접수',failed:'실패',prepared:'준비'}; return map[status]||status||'상태 확인 필요'; }
+function renderOrders() {
+  if(!$('ordersList'))return;
+  $('historyCount').textContent=`${state.history.length}건`;
+  if(!state.history.length) {$('ordersList').innerHTML='<div class="empty">저장된 주문 기록이 없습니다.<br>주문 요청 또는 매도 요청이 접수되면 이곳에 표시됩니다.</div>';return;}
+  $('ordersList').innerHTML=state.history.map(o=>{
+    const symbol=String(o.market||'').replace(/^KRW-/,''); const side=o.side==='ask'?'매도':'매수'; const funds=o.funds!==null&&o.funds!==undefined?Number(o.funds):Number(o.price||0)*Number(o.volume||0);
+    const time=o.createdAt?new Date(o.createdAt).toLocaleString('ko-KR',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+    return `<div class="order-item"><div style="min-width:0"><div class="order-title">${side} · ${esc(symbol)} ${o.entryNo?`· ${o.entryNo}회차`:''} ${o.live?'<span class="badge-live">LIVE</span>':''}</div><div class="order-meta">${esc(o.user||'')} · ${esc(time)} · ${esc(orderStatusLabel(o.status))}<br>${o.price?`주문가 ${won(o.price)} · `:''}${o.volume?'수량 '+fmtQty(o.volume):''}${o.error?`<br>오류: ${esc(o.error)}`:''}</div></div><div class="order-amount">${funds>0?won(funds):'시장가'}</div></div>`;
+  }).join('');
+}
+async function loadOpenOrders() {
+  $('openOrdersBox').classList.remove('hidden'); $('openOrdersList').innerHTML='<div class="empty">업비트 미체결 주문 조회 중…</div>';
+  try {
+    state.openOrders=await api('/api/upbit/open-orders');
+    const html=state.openOrders.map(account=>{
+      if(!account.connected)return `<div class="notice warn" style="margin:8px 0">${esc(account.user)} · ${esc(account.error||'계정 연결 필요')}</div>`;
+      if(!account.orders?.length)return `<div class="empty">${esc(account.user)} · 미체결 주문 없음</div>`;
+      return account.orders.map(o=>`<div class="order-item"><div><div class="order-title">${esc(o.market||'')} · ${o.side==='bid'?'매수':'매도'}</div><div class="order-meta">${esc(account.user)} · ${esc(orderStatusLabel(o.state))}<br>${o.price?`가격 ${won(o.price)} · `:''}${o.volume?`수량 ${fmtQty(o.volume)}`:''}</div></div><div class="order-amount">${o.price&&o.volume?won(Number(o.price)*Number(o.volume)):'시장가'}</div></div>`).join('');
+    }).join('');
+    $('openOrdersList').innerHTML=html||'<div class="empty">현재 미체결 주문이 없습니다.</div>';
+    $('homePending').textContent=`${state.openOrders.reduce((sum,a)=>sum+(a.orders||[]).length,0)}건`;
+  } catch(e) { $('openOrdersList').innerHTML=`<div class="empty">조회 실패 · ${esc(e.message)}</div>`; }
+}
+function hideOpenOrders(){ $('openOrdersBox').classList.add('hidden'); }
+function confirmCancelAll() {
+  showModal(`<div class="panel-head"><div><h2>전체 미체결 주문 취소</h2><p class="panel-subtitle">오주와 혜령의 업비트 미체결 주문을 모두 취소 요청합니다.</p></div><button class="modal-close" onclick="closeModal()">×</button></div><div class="notice danger">이미 체결된 주문은 되돌릴 수 없습니다. 취소 요청 후에도 거래소 응답을 확인해야 하며, 계정 연결 오류가 난 주문은 취소되지 않을 수 있습니다.</div><label class="checkline"><input id="cancelAck" type="checkbox">두 계정 전체의 미체결 주문 취소 요청임을 확인했습니다.</label><div id="modalError" class="notice danger modal-error"></div><div class="modal-actions"><button class="btn secondary" onclick="closeModal()">닫기</button><button id="cancelAllBtn" class="btn danger" disabled onclick="cancelAllOrders()">전체 취소 요청</button></div>`);
+  $('cancelAck').addEventListener('change',()=>{$('cancelAllBtn').disabled=!$('cancelAck').checked;});
+}
+async function cancelAllOrders() {
+  if(!$('cancelAck')?.checked)return;const button=$('cancelAllBtn');button.disabled=true;button.textContent='취소 요청 중…';hideModalError();
+  try { const result=await api('/api/orders/cancel-open',{method:'POST',body:{scope:'all'}});const ok=result.outcomes.filter(x=>x.result==='cancel-requested').length; const failed=result.outcomes.length-ok; closeModal(); alert(`취소 요청 ${ok}건 · 확인 또는 실패 ${failed}건\n거래소에서 실제 취소 여부를 다시 조회하세요.`);await loadHistory();await loadOpenOrders(); }
+  catch(e){showModalError(e.message);} finally {if($('cancelAllBtn')){$('cancelAllBtn').disabled=!$('cancelAck')?.checked;$('cancelAllBtn').textContent='전체 취소 요청';}}
+}
+
+function openEmergency() {
+  if(!state.sessionUser){alert('먼저 로그인하세요.');return;}
+  showModal(`<div class="panel-head"><div><div class="eyebrow">Emergency action</div><h2 style="margin-top:6px">내 계정 전체 시장가 매도</h2></div><button class="modal-close" onclick="closeModal()">×</button></div><div class="notice danger">대상: ${esc(state.profiles[state.sessionUser]?.displayName||state.sessionUser)} 계정만<br>원화 외의 지원 가능한 KRW 마켓 자산에 시장가 매도 요청을 보냅니다. 미체결에 묶인 수량과 앱이 지원하지 않는 종목은 제외됩니다. 실제 체결 가격은 보장되지 않습니다.</div><div class="field"><label class="label" for="emergencyPassword">최종 확인 · 계정 비밀번호 재입력</label><input id="emergencyPassword" class="input" type="password" autocomplete="current-password" placeholder="로그인 비밀번호" required></div><label class="checkline"><input id="emergencyAck" type="checkbox">실거래가 활성화된 서버에서는 확인 즉시 시장가 매도 요청이 전송될 수 있음을 이해했습니다.</label><div id="modalError" class="notice danger modal-error"></div><div class="modal-actions"><button class="btn secondary" onclick="closeModal()">취소</button><button id="emergencyBtn" class="btn danger" disabled onclick="submitEmergency()">전체 매도 요청</button></div><p class="footer-note">브라우저의 Face ID 재인증은 아직 구현되어 있지 않아 계정 비밀번호를 다시 확인합니다. 실거래 잠금이 해제되지 않은 서버에서는 주문이 전송되지 않습니다.</p>`);
+  $('emergencyAck').addEventListener('change',updateEmergencyButton);$('emergencyPassword').addEventListener('input',updateEmergencyButton);
+}
+function updateEmergencyButton() { if($('emergencyBtn')) $('emergencyBtn').disabled=!$('emergencyAck')?.checked||!$('emergencyPassword')?.value; }
+async function submitEmergency() {
+  if(!$('emergencyAck')?.checked||!$('emergencyPassword')?.value)return;
+  const button=$('emergencyBtn');button.disabled=true;button.textContent='최종 검증 중…';hideModalError();
+  try { const result=await api('/api/emergency/market-sell',{method:'POST',body:{password:$('emergencyPassword').value,confirmLive:true}});closeModal();alert(result.message||'시장가 매도 요청 결과를 확인하세요.');await loadHistory();await refreshAll(false);showPage('orders'); }
+  catch(e){showModalError(e.message+(e.status===423?' 매도 요청은 전송되지 않았습니다.':''));}
+  finally {if($('emergencyBtn')){updateEmergencyButton();$('emergencyBtn').textContent='전체 매도 요청';}}
+}
+
+async function openProfileSettings() {
+  if(!state.sessionUser)return;
+  state.pendingAvatar=undefined;state.avatarChanged=false;
+  const profile=state.profiles[state.sessionUser]||{displayName:state.sessionUser,avatarDataUrl:null};
+  try { state.credentialStatus=await api('/api/credentials/status'); } catch { state.credentialStatus={connected:false}; }
+  showModal(`<div class="panel-head"><div><div class="eyebrow">Account settings</div><h2 style="margin-top:6px">프로필 · API 설정</h2></div><button class="modal-close" onclick="closeModal()">×</button></div>
+    <div class="settings-section"><div class="panel-title">프로필</div><div class="profile-preview-row"><div id="profilePreview">${avatarHTML(state.sessionUser,'big')}</div><div><div style="font-size:12px;font-weight:750">프로필 사진</div><div class="coin-sub">이 사진은 두 기기의 계정 선택 화면에 표시됩니다.</div><div class="button-row" style="margin-top:10px"><button class="btn secondary slim" onclick="chooseAvatarFile()">사진 변경</button><button class="btn tertiary slim" onclick="clearAvatarPreview()">사진 삭제</button></div></div></div>
+      <div class="field"><label class="label" for="profileDisplayName">표시 이름</label><input id="profileDisplayName" class="input" maxlength="24" value="${esc(profile.displayName||state.sessionUser)}" placeholder="화면에 표시할 이름"></div><div id="profileError" class="notice danger modal-error"></div><button class="btn full" onclick="saveProfile()">프로필 저장</button></div>
+    <div class="settings-section"><div class="panel-head" style="margin-bottom:10px"><div><div class="panel-title">업비트 API 연결</div><p id="credentialInfo" class="panel-subtitle">연결 상태 확인 중…</p></div><span id="credentialTag" class="tag warn">미연결</span></div><div class="notice">API 키는 서버에서 암호화해 저장합니다. 업비트에서 <b>출금 권한은 절대 선택하지 마세요.</b> 접근 가능한 IP 제한을 사용할 경우 서버의 고정 IP 지원 여부도 확인해야 합니다.</div>
+      <div class="field"><label class="label" for="upbitAccessKey">Access Key</label><input id="upbitAccessKey" class="input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Access Key"></div><div class="field"><label class="label" for="upbitSecretKey">Secret Key</label><input id="upbitSecretKey" class="input" type="password" autocomplete="new-password" placeholder="Secret Key"></div><div id="apiKeyError" class="notice danger modal-error"></div><div class="button-row"><button class="btn" onclick="saveUpbitKeys()">키 검증 후 저장</button><button class="btn secondary" onclick="disconnectUpbit()">연결 해제</button></div>
+    </div><div class="footer-note">현재 로그인 계정: ${esc(state.sessionUser)} · 키 등록은 계정별로 독립 저장됩니다.</div>`);
+  renderProfileSettingsStatus();
+}
+function renderProfileSettingsStatus() {
+  if(!$('credentialInfo'))return;
+  const connected=Boolean(state.credentialStatus?.connected);$('credentialInfo').textContent=connected?'API 키 저장됨 · 키 값은 다시 표시하지 않습니다.':'API 키가 등록되어 있지 않습니다.';
+  $('credentialTag').textContent=connected?'연결됨':'미연결';$('credentialTag').className='tag '+(connected?'good':'warn');
+}
+function chooseAvatarFile(){ $('avatarFile').value=''; $('avatarFile').click(); }
+function canvasDataUrl(file) {
+  return new Promise((resolve,reject)=>{
+    const url=URL.createObjectURL(file);const image=new Image();
+    image.onload=()=>{
+      try {
+        const candidates=[512,420,340,256];let result=null;
+        for(const size of candidates){
+          const canvas=document.createElement('canvas');canvas.width=size;canvas.height=size;const ctx=canvas.getContext('2d');
+          const side=Math.min(image.naturalWidth,image.naturalHeight);const sx=(image.naturalWidth-side)/2;const sy=(image.naturalHeight-side)/2;
+          ctx.drawImage(image,sx,sy,side,side,0,0,size,size);
+          for(const quality of [0.78,0.66,0.55]){const data=canvas.toDataURL('image/jpeg',quality);if(data.length<330000){result=data;break;}}
+          if(result)break;
+        }
+        URL.revokeObjectURL(url); if(!result)reject(new Error('사진 용량을 줄이지 못했습니다. 다른 이미지를 선택하세요.'));else resolve(result);
+      } catch(e){URL.revokeObjectURL(url);reject(e);}
+    };
+    image.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('이미지를 읽을 수 없습니다.'));};image.src=url;
+  });
+}
+async function handleAvatarFile(event) {
+  const file=event.target.files?.[0];if(!file)return;
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){alert('JPEG, PNG 또는 WebP 사진만 사용할 수 있습니다.');return;}
+  try {
+    const data=await canvasDataUrl(file);state.pendingAvatar=data;state.avatarChanged=true;
+    if($('profilePreview'))$('profilePreview').innerHTML=`<span class="avatar big-avatar"><img src="${data}" alt="새 프로필 미리보기"></span>`;
+  } catch(e){alert(e.message);}
+}
+function clearAvatarPreview() {
+  state.pendingAvatar=null;state.avatarChanged=true;
+  if($('profilePreview'))$('profilePreview').innerHTML=`<span class="avatar big-avatar">${esc((state.profiles[state.sessionUser]?.displayName||state.sessionUser).slice(0,1))}</span>`;
+}
+async function saveProfile() {
+  const displayName=$('profileDisplayName')?.value.trim();if(!displayName){showFieldError('profileError','표시 이름을 입력하세요.');return;}
+  const body={displayName};if(state.avatarChanged)body.avatarDataUrl=state.pendingAvatar;
+  try {
+    const saved=await api('/api/profile',{method:'PUT',body});state.profiles[state.sessionUser]=saved;renderLoginProfiles();renderProfileControls();renderHome();renderBalances();
+    showFieldError('profileError','프로필을 저장했습니다.','success');
+  } catch(e){showFieldError('profileError',e.message);}
+}
+async function saveUpbitKeys() {
+  const accessKey=$('upbitAccessKey').value.trim(),secretKey=$('upbitSecretKey').value.trim();
+  if(!accessKey||!secretKey){showFieldError('apiKeyError','Access Key와 Secret Key를 모두 입력하세요.');return;}
+  try {
+    const result=await api('/api/credentials/upbit',{method:'POST',body:{accessKey,secretKey}});
+    $('upbitAccessKey').value='';$('upbitSecretKey').value='';state.credentialStatus={connected:true};renderProfileSettingsStatus();renderGlobalStatus();showFieldError('apiKeyError',result.message||'업비트 연결이 확인되었습니다.','success');
+    await refreshAll(false);
+  } catch(e){showFieldError('apiKeyError',e.message);}
+}
+async function disconnectUpbit() {
+  if(!confirm(`${state.sessionUser} 계정에 저장된 업비트 API 키 연결을 해제할까요?`))return;
+  try { await api('/api/credentials/upbit',{method:'DELETE'});state.credentialStatus={connected:false};renderProfileSettingsStatus();renderGlobalStatus();showFieldError('apiKeyError','API 키 연결을 해제했습니다.','success');await refreshAll(false); }
+  catch(e){showFieldError('apiKeyError',e.message);}
+}
+function showFieldError(id,message,kind='danger') { const el=$(id);if(!el)return;el.textContent=message;el.classList.remove('danger','success');el.classList.add(kind==='success'?'success':'danger');el.classList.add('show'); }
+function showModalError(message) { showFieldError('modalError',message,'danger'); }
+function hideModalError() { const el=$('modalError');if(el){el.classList.remove('show');el.textContent='';} }
+function showModal(content) { $('modalHost').innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal" role="dialog" aria-modal="true">${content}</div></div>`; }
+function closeModal() { if(state.profileObjectUrl){URL.revokeObjectURL(state.profileObjectUrl);state.profileObjectUrl=null;} $('modalHost').innerHTML='';state.pendingAvatar=undefined;state.avatarChanged=false; }
+
+renderLoginProfiles();
+calcPreview();
+boot();
+</script>
+</body>
+</html>
